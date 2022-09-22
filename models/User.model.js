@@ -10,6 +10,10 @@ const Schema = mongoose.Schema;
 
 const clientSchema = new Schema({
   // TODO: write the schema
+  name: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  favorites: [{ type: Schema.Types.ObjectId, ref: "Recipe" }],
+  deslikes: [{ type: Schema.Types.ObjectId, ref: "Recipe" }],
 });
 
 const ClientModel = mongoose.model("Client", clientSchema);
